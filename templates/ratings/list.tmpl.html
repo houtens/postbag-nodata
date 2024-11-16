@@ -1,0 +1,51 @@
+{{define "ratings/list"}}
+{{template "partials/header" .}}
+{{template "partials/nav" .}}
+
+<main class="container">
+  <hgroup>
+    <h2>Current Ratings</h2>
+    <p>List of all current ratings</p>
+  </hgroup>
+
+  <input
+    type="text" 
+    name="q" 
+    placeholder="Search for a player"
+    hx-get="/api/ratings/filtered-list"
+    hx-trigger="keyup changed delay:300ms"
+    hx-target="#ratings-list"
+  >
+
+  <!-- rank, rating, membership?, #games if < 100, name, country(flag), club, last played -->
+
+  <table class="container striped">
+      <thead>
+        <tr>
+          <th scope="col">Rank</th>
+          <th scope="col">Rating</th>
+          <th scope="col">Name</th>
+          <th scope="col">Club</th>
+        </tr>
+      </thead>
+      <tbody id="ratings-list">
+        {{range .Ratings}}
+        <tr>
+          <td>
+            {{.Rank}}
+          </td>
+          <td>
+            {{.Rating}}
+          </td>
+          <td>
+            <a class="" href="/profile/{{.ID}}">{{.Name}}</a>
+          </td>
+          <td> {{.Club}} </td>
+        </tr>
+        {{end}}
+    </tbody>
+  </table>
+</main>
+
+{{template "partials/footer" .}}
+{{end}}

@@ -1,0 +1,52 @@
+{{define "admin/dashboard"}}
+{{template "partials/header" .}}
+
+<main class="main">
+  
+  <section>
+    <div>
+      <span class="text-3xl font-bold">Admin Dashboard</span>
+    </div>
+  </section>
+
+  <section class="my-5">
+    <fieldset class="border rounded-lg px-5">
+      <legend class="uppercase font-semibold">Tournaments</legend>
+      <p>Pending approval: 4</p>
+      <p>Scheduled: 0</p> <!-- approved -->
+      <p>Ready for rating: 0</p>
+      <br>
+      <p><a href="/admin/tournaments" class="underline">View all tournaments</a></p>
+      <p><a href="/admin/tournaments/new" class="underline">Create a new tournament</a></p>
+    </fieldset>
+  </section>
+
+  <section class="my-5">
+    <fieldset class="border rounded-lg px-5">
+      <legend class="uppercase font-semibold">Users</legend>
+      <p>Total users: 123</p>
+      <p>Members: 245</p>
+      <p>Active players: 345 +23</p>
+      <br>
+      <p><a href="/admin/users" class="underline">View all users</a></p>
+      <p><a href="/admin/users/new" class="underline">Create a new user</a></p>
+    </fieldset>
+  </section>
+
+  <section class="my-5">
+    <fieldset class="border rounded-lg px-5">
+      <legend class="uppercase font-semibold">Clubs</legend>
+      <p><a href="/admin/clubs" class="underline">View all clubs</a></p>
+      <p><a href="/admin/clubs/new" class="underline">Create a new club</a></p>
+    </fieldset>
+  </section>
+
+</main>
+
+<!-- /admin/users -- list users -->
+<!-- /admin/users/:id -- view editable profile of a given user -->
+
+
+{{template "partials/footer" .}}
+{{end}}
+

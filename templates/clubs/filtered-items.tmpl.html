@@ -1,0 +1,15 @@
+{{define "clubs/filtered-list"}}
+  {{range .Clubs}}
+  <tr>
+    <th scope="row">
+    <a class="link" href="/clubs/{{.ID}}">{{.Name}}</a>
+    </th>
+    <td scope="row">
+      {{.County}}
+    </td>
+    <td scope="row">
+      {{.Country}}
+    </td>
+  </tr>
+  {{end}}
+{{end}}

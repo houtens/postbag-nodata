@@ -1,0 +1,48 @@
+{{define "profile/edit"}}
+{{template "partials/header" .}}
+{{template "partials/nav" .}}
+
+<!-- <main class="main"> -->
+<main class="container">
+
+  <hgroup>
+    <h2>Edit profile</h2>
+    <p>Your full name is used to uniquely identify you in the ratings and it is not editable. If you wish to change your name please contact: admin@absp-database.org</p>
+  </hgroup>
+  <section>
+
+    <h3>{{.User.FirstName}} {{.User.LastName}}</h3>
+    <p>{{.User.AltName}}</p>
+    <p>Email: {{.User.Email}}</p>
+    <p>Membership number: {{.User.AbspNum}}</p>
+
+    <label for="club">Club</label>
+    <select>
+      {{range .Clubs}}
+      <option name="club" value="{{.ID}}" {{if eq .ID $.User.ClubID}}selected{{end}}>{{.Name}}</option>
+      {{end}}
+    </select>
+
+    <!-- for display only -->
+    <p>Title: {{.User.TitleID}}</p>
+
+    <!-- editable -->
+    <p>Address1: {{.Contact.Address1}}</p>
+    <p>Address2: {{.Contact.Address2}}</p>
+    <p>Address3: {{.Contact.Address3}}</p>
+    <p>Address4: {{.Contact.Address4}}</p>
+    <p>Postcode: {{.Contact.Postcode}}</p>
+    <p>Country:</p>
+
+    <p>Email: {{.User.Email}}</p>
+    <p>Phone: {{.Contact.Phone}}</p>
+    <p>Mobile: {{.Contact.Mobile}}</p>
+
+    <p>Avatar</p>
+
+  </section>
+
+</main>
+{{template "partials/footer" .}}
+{{end}}
+

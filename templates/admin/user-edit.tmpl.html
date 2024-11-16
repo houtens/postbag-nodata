@@ -1,0 +1,103 @@
+{{define "admin/user-edit"}}
+{{template "partials/header" .}}
+
+<main class="main">
+  
+  <!-- mx-auto -->
+  <!-- <div class="flex flex-wrap w-full max-w-md"> -->
+  <form>
+
+    <div class="grid gap-6 mb-6 md:grid-cols-2">
+
+      <div>
+        <label for="first-name" class="block mb-2 text-sm font-light text-gray-900">First Name</label>
+        <input class="block w-full p-2 rounded-lg text-gray-900 border border-gray-300" type="text" name="first-name" id="first-name" value="{{.profile.FirstName}}">
+      </div>
+
+      <div>
+        <label for="last-name" class="block mb-2 text-sm font-light text-gray-900">Last Name</label>
+        <input class="block w-full p-2 rounded-lg text-gray-900 border border-gray-300" type="text" name="last-name" id="last-name" value="{{.profile.LastName}}">
+      </div>
+
+      <div>
+        <label for="alt-name" class="block mb-2 text-sm font-light text-gray-900">Alternative Name</label>
+        <input class="block w-full p-2 rounded-lg text-gray-900 border border-gray-300" type="text" name="alt-name" id="alt-name" value="{{.profile.AltName.String}}">
+      </div>
+
+      <div>
+        <label for="title-selector" class="block mb-2 text-sm font-light text-gray-900">Title</label>
+        <select class="block w-full p-2 rounded-md text-gray-900 border border-gray-300" name="title-selector" id="title-selector">
+          {{range .titles}}
+          <option value="{{.ID}}" {{if eq .ID $.profile.TitleID.UUID}} selected {{end}}>{{.Name}}</option>
+          {{end}}
+        </select>
+      </div>
+
+
+      <div>
+        <label for="email" class="block mb-2 text-sm font-light text-gray-900">Email</label>
+        <input class="block w-full p-2 rounded-lg text-gray-900 border border-gray-300" type="text" name="email" id="email" value="{{.profile.Email.String}}">
+      </div>
+
+      <div>
+        <label for="absp-number" class="block mb-2 text-sm font-light text-gray-900">ABSP Number</label>
+        <input class="block w-full p-2 rounded-lg text-gray-900 border border-gray-300 select-none" type="text" name="absp-number" id="absp-number" value="{{.profile.AbspNum.Int32}}" readonly>
+      </div>
+
+      <div>
+        <label for="club-selector" class="block mb-2 text-sm font-light text-gray-900">Club</label>
+        <select class="block w-full p-2 rounded-md text-gray-900 border border-gray-300" name="club-selector" id="club-selector">
+          {{range .clubs}}
+          <option value="{{.ID}}" {{if eq .ID $.profile.ClubID.UUID}} selected {{end}}>{{.Name}}</option>
+          {{end}}
+        </select>
+      </div>
+
+    </div>
+    
+    <div class="mb-6">
+      <label for="address1" class="block mb-2 text-sm font-light text-gray-900">Address Line 1</label>
+      <input class="block w-full p-2 rounded-lg text-gray-900 border border-gray-300 select-none" type="text" name="address1" id="address1" value="{{.profile.Address1.String}}">
+    </div>
+    
+    <div class="mb-6">
+      <label for="address2" class="block mb-2 text-sm font-light text-gray-900">Address Line 2</label>
+      <input class="block w-full p-2 rounded-lg text-gray-900 border border-gray-300 select-none" type="text" name="address2" id="address2" value="{{.profile.Address2.String}}">
+    </div>
+
+    <div class="mb-6">
+      <label for="address3" class="block mb-2 text-sm font-light text-gray-900">Town/City</label>
+      <input class="block w-full p-2 rounded-lg text-gray-900 border border-gray-300 select-none" type="text" name="address3" id="address3" value="{{.profile.Address3.String}}">
+    </div>
+
+    <div class="mb-6">
+      <label for="address4" class="block mb-2 text-sm font-light text-gray-900">County</label>
+      <input class="block w-full p-2 rounded-lg text-gray-900 border border-gray-300 select-none" type="text" name="address4" id="address4" value="{{.profile.Address4.String}}">
+    </div>
+
+    <div class="mb-6">
+      <label for="postcode" class="block mb-2 text-sm font-light text-gray-900">Postcode</label>
+      <input class="block w-full p-2 rounded-lg text-gray-900 border border-gray-300 select-none" type="text" name="postcode" id="postcode" value="{{.profile.Postcode.String}}">
+    </div>
+
+    <div>
+      <label for="country-selector" class="block mb-2 text-sm font-light text-gray-900">Country</label>
+      <select class="block w-full p-2 rounded-md text-gray-900 border border-gray-300" name="country-selector" id="country-selector">
+        {{range .countries}}
+        <option value="{{.ID}}" {{if eq .ID $.profile.CountryID.UUID}} selected {{end}}>{{.Name}}</option>
+        {{end}}
+      </select>
+    </div>
+
+    <div class="mb-6">
+      <label for="phone" class="block mb-2 text-sm font-light text-gray-900">Phone</label>
+      <input class="block w-full p-2 rounded-lg text-gray-900 border border-gray-300 select-none" type="text" name="phone" id="phone" value="{{.profile.Phone.String}}">
+    </div>
+
+  </form>
+
+</main>
+
+{{template "partials/footer" .}}
+{{end}}
+

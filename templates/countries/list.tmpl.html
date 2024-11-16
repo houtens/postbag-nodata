@@ -1,0 +1,25 @@
+{{define "countries/list"}}
+{{template "partials/header" .}}
+
+<main class="main">
+  
+  <div>
+    <p>List of all countries for demo purposes only.</p>
+  </div>
+
+  {{.name}}
+
+  <table>
+    {{range .countries}}
+    <tr>
+      <td><a href="#">{{.Name}}</a></td>
+      <td>{{.Flag.String | unescapeHTML}}</td> 
+      <td>{{.Code.String}}</td>
+    </tr>
+    {{end}}
+  </table>
+</main>
+
+{{template "partials/footer" .}}
+{{end}}
+

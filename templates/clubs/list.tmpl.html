@@ -1,0 +1,47 @@
+{{define "clubs/list"}}
+{{template "partials/header" .}}
+{{template "partials/nav" .}}
+
+<main class="container">
+  <hgroup>
+    <h2>Clubs</h2>
+  </hgroup>
+  
+  <input 
+    type="text" 
+    name="q"
+    placeholder="Search by club name, county or country"
+    hx-get="/api/clubs/filtered-list"
+    hx-trigger="keyup changed delay:300ms"
+    hx-target="#clubs-list"
+  >
+
+  <table class="container striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">County</th>
+        <th scope="col">Country</th>
+      </tr>
+    </thead>
+
+    <tbody id="clubs-list">
+        {{range .Clubs}}
+        <tr>
+          <th scope="row">
+          <a class="link" href="/clubs/{{.ID}}">{{.Name}}</a>
+          </th>
+          <td scope="row">
+            {{.County}}
+          </td>
+          <td scope="row">
+            {{.Country}}
+          </td>
+        </tr>
+        {{end}}
+    </tbody>
+  </table>
+</main>
+{{template "partials/footer" .}}
+{{end}}
+

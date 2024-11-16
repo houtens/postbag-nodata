@@ -1,0 +1,125 @@
+{{define "tournaments/create"}}
+{{template "partials/header" .}}
+{{template "partials/nav" .}}
+<main class="container">
+
+  <hgroup>
+    <h2>Create a new tournament</h2>
+    <p>Any member of the ABSP can propose a tournament to the Tournaments and Ratings Officer for consideration.</p>
+    <p>Rules: invitational, one-day and multi-day tournaments have different rules.</p>
+  </hgroup>
+
+  <form action="/tournaments/create" method="post">
+    <div class="grid">
+      <div>
+        <label for="name">Tournament Name</label>
+        <input type="text" id="name" name="name" placeholder="Name" value="{{.Name}}" minlength=3 required>
+      </div> 
+    </div>
+    <div class="grid">
+      <div>
+        <label for="start_date">Start Date</label>
+        <input type="date" id="start_date" name="start_date" value="{{.StartDate}}">
+      </div> 
+      <div>
+        <label for="end_date">End Date</label>
+        <input type="date" id="end_date" name="end_date" value="{{.EndDate}}">
+      </div> 
+    </div>
+
+    <div class="grid">
+      <div>
+        <label for="rounds">Number of rounds (can be updated later)</label>
+        <input type="number" id="rounds" name="rounds" value="{{.Rounds}}" minvalue=1 required>
+      </div>
+      <div>
+        <label for="divisions">Proposed number of divisions (can be updated later)</label>
+        <input type="number" id="divisions" name="divisions" value="{{.Divisions}}" minvalue=1 required>
+      </div>
+    </div>
+    
+    <div>
+      <div>
+        <p>Will the tournament be rated with an additional ratings system?</p>
+      </div>
+      <div class="grid">
+        <span>
+          <input type="checkbox" name="absp" checked disabled="disabled">
+          <input type="hidden" name="absp" value="true">
+          <label for="absp">ABSP</label>
+        </span>
+        <span>
+          <input type="checkbox" name="wespa" value="true">
+          <label for="wepsa">WESPA</label>
+        </span>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div>
+        <label for="invitational">Is the tournament an invitational?</label>
+        <input type="checkbox" name="invitational" value="true">Invitational</input>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div>
+        <p>Will the tournament involve free challenge, penalty challenge or both?</p>
+        <input type="checkbox" name="free" value="true">Free Challenge</input>
+        <input type="checkbox" name="penalty" value="true">Penalty Challenge</input>
+      </div>
+    </div>
+
+    <div class="grid">
+      <label for="organiser">Organiser:</label>
+      <input 
+        type="text" 
+        list="organisers"
+        name="organiser" 
+        id="organiser"
+        hx-get="/api/organisers/filtered-list"
+        hx-trigger="keyup changed delay:300ms"
+        hx-target="#organisers"
+      >
+      <datalist name="organisers" id="organisers"></datalist>
+    </div>
+
+    <div class="grid">
+      <label for="director">Director:</label>
+      <input
+        type="text"
+        list="directors"
+        name="director"
+        id="director"
+        hx-get="/api/directors/filtered-list"
+        hx-trigger="keyup changed delay:300ms"
+        hx-target="#directors"
+      >
+      <datalist name="directors" id="directors"></datalist>
+    </div>
+
+    <div class="grid">
+      <label for="coperator">Computer Operator:</label>
+      <input
+        type="text"
+        list="coperators"
+        name="coperator"
+        id="coperator"
+        hx-get="/api/coperator/filtered-list"
+        hx-trigger="keyup changed delay:300ms"
+        hx-target="#coperators"
+      >
+        <datalist name="coperators" id="coperators"></datalist>
+    </div>
+
+    <div class="grid">
+      <button>Submit</button>
+    </div>
+  </form>
+
+
+</main>
+
+{{template "partials/footer" .}}
+{{end}}
+

@@ -1,0 +1,44 @@
+{{define "clubs/detail"}}
+{{template "partials/header" .}}
+{{template "partials/nav" .}}
+
+<main class="container">
+
+    <hgroup>
+      <h2>Club Details</h2>
+      <hr>
+    </hgroup>
+
+    <section class="grid">
+      <div>
+        {{with .Club}}
+        <h3>{{.ClubName}}</h3>
+        <p>Contact: {{.ContactName}}</p>
+        <p>Phone: {{.Phone}}</p>
+        <p>Email: {{.Email}}</p>
+        <p>Website: {{.Website}}</p>
+        <p>Country: {{.Code}} {{.Flag | unescapeHTML}}</p>
+        {{end}}
+      </div>
+    <table class="container-fluid half-width">
+      <thead>
+        <tr>
+          <th scope="col">Member</th>
+          <th scope="col">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{range .Members}}
+        <tr>
+          <td scope="row"><a href="/profile/{{.ID}}">{{.Name}}</a></td>
+          <td scope="row">{{.Rating}}</td>
+        </tr>
+        {{end}}
+      </tbody>
+    </table>
+  </section>
+
+</main>
+{{template "partials/footer" .}}
+{{end}}
+

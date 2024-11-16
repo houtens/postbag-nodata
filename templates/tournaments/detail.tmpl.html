@@ -1,0 +1,16 @@
+{{define "tournaments/detail"}}
+{{template "partials/header" .}}
+{{template "partials/nav" .}}
+<main class="container">
+  <hgroup>
+    <h2>{{.Tournament.Name}} ({{.Tournament.ShortName}})</h2>
+    <p>{{.Tournament.StartDate | formatDateShort}}</p>
+    <p>postcode</p>
+  </hgroup>
+
+  <h2>Players</h2>
+  
+</main>
+{{template "partials/footer" .}}
+{{end}}
+

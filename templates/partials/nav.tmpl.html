@@ -1,0 +1,32 @@
+{{define "partials/nav"}}
+<body>
+<header class="container">
+  <nav>
+    <ul>
+      <li><strong><a href="/profile">ABSP Ratings Database</a></strong></li>
+    </ul>
+    <ul>
+      <li>
+          <details class="dropdown">
+            <summary id="dropdown">Tournaments</summary>
+            <ul>
+              <li><a href="/tournaments">Results</a></li>
+              <li><a href="/tournaments/upcoming">Upcoming</a></li>
+              <li><a href="/tournaments/manage">Manage</a></li>
+              <li><a href="/tournaments/create">Create</a></li>
+            </ul>
+          </details>
+
+        </li>
+      <li><a href="/ratings">Ratings</a></li>
+      <li><a href="/clubs">Clubs</a></li>
+      {{if .IsAdmin}}
+      <li><a href="#">Admin</a></li>
+      {{end}}
+      <li class="profile-logo"><a href="/auth/logout">HL</a></li>
+    </ul>
+  </nav>
+
+  <button name="theme-toggle" id="theme-toggle">Toggle</button>
+</header>
+{{end}}

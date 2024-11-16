@@ -1,0 +1,23 @@
+{{define "auth/login"}}
+{{template "partials/header" .}}
+{{template "partials/nav-nomenu" .}}
+<main class="container flex-center">
+  <article class="grid">
+    <div class="centered-block">
+      <hgroup>
+        <h2>Sign in</h2>
+        <p>Please enter your credentials to access your account.</p>
+      </hgroup>
+      <form action="/auth/login" method="POST">
+          <input type="email" name="email" id="email" placeholder="Email" required>
+          <input type="password" name="password" id="password" placeholder="Password" required>
+          <input type="submit" value="Sign In">
+          <a href="/auth/forgot">
+            Forgot your password?
+          </a>
+      </form>
+    </div>
+  </article>
+</main>
+{{template "partials/footer"}}
+{{end}}

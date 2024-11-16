@@ -1,0 +1,9 @@
+alter table absp_clubs rename clubs;
+alter table absp_invoices rename invoices;
+alter table absp_log_entries rename log_entries;
+alter table absp_member_years rename member_years;
+alter table absp_members rename members;
+alter table absp_payments rename payments;
+alter table absp_ratings rename ratings;
+alter table absp_results rename results;
+alter table absp_tournaments rename tournaments;

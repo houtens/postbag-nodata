@@ -1,0 +1,113 @@
+{{define "profile/detail"}}
+{{template "partials/header" .}}
+{{template "partials/nav" .}}
+<main class="container">
+  <section>
+    {{template "partials/flashes" .}}
+  </section>
+
+  <section>
+    <a href="/profile">Profile</a>&nbsp/&nbsp{{.Profile.FullName}}
+  </section>
+
+
+  {{with .Profile}}
+  <section class="grid">
+        <article class="container-fluid">
+          <img src="/static/avatars/{{.Avatar}}" alt="Avatar">
+          <span>{{.FullName}}</span>
+          {{if eq .ValidMember 1}}
+            <span>Member</span>
+          {{else}}
+            <span>Non Member</span>
+          {{end}}
+        </article>
+  </section>
+  {{end}}
+
+  <section>
+    <a href="/profile/edit/{{.UserID}}">Edit</a>
+  </section>
+
+  {{with .Profile}}
+  <section>
+    {{if .ClubName}}
+      <p><a class="link" href="/clubs/{{.ClubID}}">{{.ClubName}}</a></p>
+    {{else}}
+      <span>Location/Country</span>
+    {{end}}
+      ABSP Number: {{.ABSPNum}}
+  </section>
+
+
+  <section class="container">
+    <dt class="text-sm leading-5 font-medium text-gray-500 truncate">Current Rating</dt>
+    <dd class="mt-1 text-3xl leading-9 font-semibold text-indigo-600">{{.Rating}}</dd>
+    <dt class="text-sm leading-5 font-medium text-gray-500 truncate">Win Rate</dt>
+    <dd class="mt-1 text-3xl leading-9 font-semibold text-indigo-600">{{.WinRate}}%</dd>
+    <dt class="text-sm leading-5 font-medium text-gray-500 truncate">Won-Lost-Drawn</dt>
+    <dd class="mt-1 text-3xl leading-9 font-semibold text-indigo-600">{{.Won}}-{{.Lost}}-{{.Drawn}}</dd>
+    <dt class="text-sm leading-5 font-medium text-gray-500 truncate">Average Score For-Against</dt>
+    <dd class="mt-1 text-3xl leading-9 font-semibold text-indigo-600">{{.ScoreFor}}-{{.ScoreAgainst}}</dd>
+  </section>
+  {{end}}
+
+  <p><strong>Recent Results</strong></p>
+
+  <table class="striped">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Tournament</th>
+        <th scope="col">Games</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{if eq (len .Tournaments) 0}}
+      {{else}}
+        {{range .Tournaments}}
+        <tr>
+          <th scope="row">
+            {{.StartDate | formatDateLong}}
+          </th>
+          <td scope="row">
+            {{.Name}}
+          </td>
+          <td scope="row">
+            {{.NumRounds}}
+          </td>
+        </tr>
+        {{end}}
+      {{end}}
+    </tbody>
+  </table>
+
+  <section>
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Tournament</th>
+          <th scope="col">Performance</th>
+          <th scope="col">End Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{range .Ratings}}
+        <tr>
+              <td scope="row">{{.StartDate | formatDateLong}}</td>
+              <td scope="row">
+                <a href="/tournaments/{{.ID}}">{{.Tournament}}</a>
+              </td>
+              <td>{{.NumWins}} / {{.NumGames}}</td>
+              <td>{{.EndRating}}</td>
+        </tr>
+        {{end}}
+      </tbody>
+    </table>
+  </section>
+
+</main>
+{{template "partials/footer" .}}
+{{end}}
+

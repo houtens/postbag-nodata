@@ -1,0 +1,39 @@
+{{define "tournaments/list"}}
+{{template "partials/header" .}}
+{{template "partials/nav" .}}
+<main class="container">
+
+  <hgroup>
+    <h2>Tournament Results</h2>
+  </hgroup>
+
+  <table class="striped">
+    <thead>
+      <tr>
+        <th scope="col">Date</th> 
+        <th scope="col">Name</th> 
+        <th scope="col">Games</th> 
+        <th scope="col">Entrants</th> 
+        <th scope="col">Locked</th> 
+      </tr>
+    </thead>
+    <tbody>
+      {{range .Tournaments}}
+      <tr>
+        <td scope="row">{{.EndDate | formatDateLong}}</td>
+        <td scope="row">
+              <a href="/tournaments/{{.ID}}">{{.Name}}</a>
+        </td>
+        <td scope="row">{{.NumRounds}}</td>
+        <td scope="row">{{.NumEntries}}</td>
+        <td scope="row">{{.IsLocked}}</td>
+      </tr>
+      {{end}}
+    </tbody>
+  </table>
+
+</main>
+
+{{template "partials/footer" .}}
+{{end}}
+

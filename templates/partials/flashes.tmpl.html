@@ -1,0 +1,23 @@
+{{define "partials/flashes"}}
+  {{if .flashes}}
+    {{range .flashes}}
+      {{if eq .Level "warning"}}
+        <div class="warning">
+          <span class="text-sm">{{.Message}}</span>
+        </div>
+      {{else if eq .Level "error"}}
+        <div class="error">
+          <span class="text-sm">{{.Message}}</span>
+        </div>
+      {{else if eq .Level "success"}}
+        <div class="success">
+          <span class="text-sm">{{.Message}}</span>
+        </div>
+      {{else if eq .Level "info"}}
+        <div class="info">
+          <span class="text-sm">{{.Message}}</span>
+        </div>
+      {{end}}
+    {{end}}
+  {{end}}
+{{end}}

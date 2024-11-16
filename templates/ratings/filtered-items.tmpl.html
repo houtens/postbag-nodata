@@ -1,0 +1,17 @@
+{{define "ratings/filtered-list"}}
+  {{range .Ratings}}
+  <tr>
+    <td>
+      {{.Rank}}
+    </td>
+    <td>
+      {{.Rating}}
+    </td>
+    <td>
+      <a class="" href="/profile/{{.ID}}">{{.Name}}</a>
+    </td>
+    <td> {{.Club}} </td>
+  </tr>
+  {{end}}
+{{end}}
+

@@ -1,0 +1,16 @@
+.DS_Store
+tmp/
+bin/
+seed/data/export
+tmp.csv
+.env
+node_modules/
+
+# ignore postgres dump
+*.pg
+database/backups/
+
+# pix are local only
+seed/data/pix
+static/images/avatars
+

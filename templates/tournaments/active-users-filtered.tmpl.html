@@ -1,0 +1,6 @@
+{{define "active-users/filtered-list"}}
+  {{range .Organisers}}
+<option data-value="{{.ID}}" value="{{.FirstName}} {{.LastName}}"></option>
+  {{end}}
+{{end}}
+

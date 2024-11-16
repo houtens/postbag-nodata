@@ -1,0 +1,23 @@
+{{define "auth/reset"}}
+{{template "partials/header" .}}
+{{template "partials/nav-nomenu" .}}
+<main class="container flex-center">
+  <article class="grid">
+    <div class="centered-block">
+      <hgroup>
+        <h2>Reset your password</h2>
+        <p>Passwords should be a minimum of 8 characters and must contain at least one number and special character</p>
+      </hgroup>
+      <!-- add js validation that passwords match -->
+      <form action="/auth/reset" method="POST">
+        <input type="hidden" name="user" value="{{.user}}">  
+        <input type="hidden" name="token" value="{{.token}}">  
+        <input type="password" name="password" id="password" placeholder="Password">
+        <input type="password" name="password-repeat" id="password-repeat" placeholder="Confirm Password">
+        <input type="submit" value="Save Password" />
+      </form>
+    </div>
+  </article>
+</main>
+{{template "partials/footer"}}
+{{end}}

@@ -1,0 +1,70 @@
+html {
+  font-size: 16px;
+}
+
+nav {
+  font-size: 18px;
+  padding: 1rem 0;
+  font-weight: bold;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.profile-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--pico-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+  font-weight: bold;
+  color: #333;
+}
+
+.half-width {
+  width: 50%;
+  /* margin: 0 auto; */
+  display: block;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.centered-block {
+  max-width: 600px;
+  margin: auto;
+  padding: 2rem;
+  background: var(--card-background);
+  box-shadow: var(--card-shadow);
+  border-radius: var(--radius);
+  text-align: left;
+}
+
+.flex-center {
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* #dropdown { */
+/*   background: none; */
+/*   border: none; */
+/*   font-weight: bold; */
+/*   color: var(--pico-primary); */
+/* } */
+
+details.dropdown summary:not([role]){
+details.dropdown summary:not([role]){
+  color: var(--pico-primary);
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  font-weight: bold;
+}
+
+details.dropdown summary+ul li a {
+  color: var(--pico-primary)
+}

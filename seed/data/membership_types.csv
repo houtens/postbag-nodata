@@ -1,0 +1,13 @@
+"name","code","years","junior","post","life"
+"Legacy, Post","legacy-post",1,false,true,false
+"Legacy, PDF","legacy-pdf",1,false,false,false
+"Life, Post","life-post",100,false,true,true
+"Life, PDF","life-pdf",100,false,false,true
+"One-year, Adult, Post","one-adult-post",1,false,true,false
+"One-year, Adult, PDF","one-adult-pdf",1,false,false,false
+"One-year, Junior, Post","one-junior-post",1,true,true,false
+"One-year, Junior, PDF","one-junior-pdf",1,true,false,false
+"Two-year, Adult, Post","two-adult-post",2,false,true,false
+"Two-year, Adult, PDF","two-adult-pdf",2,false,false,false
+"Two-year, Junior, Post","two-junior-post",2,true,true,false
+"Two-year, Junior, PDF","two-junior-pdf",2,true,false,false

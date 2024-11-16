@@ -1,0 +1,30 @@
+{{define "admin/users"}}
+{{template "partials/header" .}}
+
+<main class="main">
+  
+  <p>Show memmber/non-member, last_played, sortable and searchable column</p>
+  <p>Could show Town/City and Country name</p>
+  <p>Include (deceased) label</p>
+
+  <div class="w-full">
+    <span>
+      Name | Email | Role | Edit
+    </span>
+  </div>
+
+  <section>
+    <table>
+      {{range .users}}
+      <tr>
+        <td><a class="underline" href="/admin/users/{{.ID}}">{{.FirstName}} {{.LastName}}</a></td>
+      </tr>
+      {{end}}
+    </table>
+  </section>
+
+</main>
+
+{{template "partials/footer" .}}
+{{end}}
+
